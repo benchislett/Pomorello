@@ -13,14 +13,6 @@ DEPLOY_FOLDER=public/
 DEPLOY_BRANCH=gh-pages
 
 
-## CONFIGURE GIT
-
-# If auth token exists, set it
-if [[ ! -z "$GH_TOKEN" ]]
-then
-  git config user.password "$GH_TOKEN"
-fi
-
 ## SEND CHANGES TO REMOTE
 
 # Change the head to the deployment branch
