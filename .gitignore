@@ -5,4 +5,4 @@ node_modules/
 *.swp
 
 # Webpack build results (found in gh-pages branch)
-public/
+bundle.js
