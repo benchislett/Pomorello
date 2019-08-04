@@ -25,7 +25,7 @@ git --work-tree $DEPLOY_FOLDER reset --mixed --quiet
 git --work-tree $DEPLOY_FOLDER add --all
 
 # Commit the changes, prompt the user for a commit message
-git --work-tree $DEPLOY_FOLDER commit
+git --work-tree $DEPLOY_FOLDER commit -m "Add build files"
 
 # Push the changes to the remote
 git push --quiet $REMOTE_URL $DEPLOY_BRANCH
