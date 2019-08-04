@@ -12,6 +12,8 @@ DEPLOY_FOLDER=public/
 # Set the branch where the build files are will go (must already exist)
 DEPLOY_BRANCH=gh-pages
 
+git config user.name "Benjamin Chislett"
+git config user.email "chislett.ben@gmail.com"
 
 ## SEND CHANGES TO REMOTE
 
