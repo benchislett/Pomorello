@@ -6,3 +6,6 @@ node_modules/
 
 # Webpack build results (found in gh-pages branch)
 bundle.js
+
+# Curled deploy script
+deploy_tmp.sh
