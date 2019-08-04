@@ -44,6 +44,15 @@ window.TrelloPowerUp.initialize({
             refresh: 30
           }
         }
+      },
+      {
+        dynamic: function(){
+          return {
+            text: 'Dynamic ' + (Math.random() * 100).toFixed(0).toString(),
+            color: 'green',
+            refresh: 10 // in seconds
+          };
+        }
       }
     ];
   }
