@@ -1,22 +1,17 @@
 language: node_js
-
 node_js:
-  - node
-
+- node
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run build
-  - npm test
-
+- npm run build
+- npm test
 deploy:
   provider: script
   skip_cleanup: true
   script: npm run deploy
   on:
     branch: master
-
 env:
   global:
-    secure: IJ+sg1YL6Z4J7zpYmlmF6wqNQ/3Ta4riqROnQOZe+Re830KntXcO+zAsu+5KfXNOnsDzAV0vjJmKVFUDKq7o78c13yn7purRcbd5vfZzD2slAgeTx2STArKw3tcKzDl67rpf/Jc8XhM3ZLrns/h6Af6B0igu/qkKzAZ6XY8Hjau32KEI9cAnuS49e+9+Nwzy2N++mcRNB7ETo3goRmCklx5NwnFE1unNeOD0XzYtwjvMSQGX+yh/POPXGs1+8cLVBycyU3aJ4JbLQPkiZtU/XFR6XaJg6wcYlqmbfsJhLlIK7rHYoCy5vtCApkEXWp9TmX7UlCX4riU0uucBTm40xHihugsD7tT8fy5fRfs2LUsQ5qjoHKpsqD7wsKQ+YkwvZmROzeiI+ECQ14X2lJnLmK0B16dtUmYRNV8hU924KVX7QaZD8waYDK8BqRKaHhI8MdfsMisg69FZ9VfXi+TmtruB3ZlBMdFiaVdfik/J1wmege1rFgCKWW7vXFVB3nGadc9MtIMFL1zOynclFZnbMJy4dUkVO1AwPriXcuSAKFo3g2DM4Rn7yLxasUk67mPKl/x/23OysQgbFqQpXTCMgjCmsiaRk+x8Kw+lJ1mNlN2fEwTEWuMkwseoXwVMt7LyGSJv7yut4YAU3Gbn5eQOmFZcCZGKknfTR+2BehrVg88=
+    secure: WZtA16V40DGCrQyov5P6XRmtqLaR+52x2ibD+3p7JBXmT+OMH39TDw1SZU4b/O8kPxbxll23TXqc7KnluhbBdaCwUQxAPmTAyaDH039p+L8jSemQQ7UfdMqMr4iP9dHqgAlxpy6R7pbMDlrMmsCvxsva1L9Q1UPFHvhPwhTqj/DdpQM19cMlyXKRQw3IYE9z3IBiP0guZS5vN3TYQXXGc5pb/TJSWLo7VU118hcN3JPquS9pnj0A2L4A986da/MUMkH+b3foxgUMlEAQFdFv75W7sBqJGi09v9xoLKoejdL6DPB5FyA+VxZWfTAwVL8polS2fkgAnAFnqhjehsedrB6fQfS4GpnPFjLpJVJ/kEL9rAmwGyTZ39Qwoknt8Zruz7OIiIWPGYWwl5BZT88ewgNTT8p3vHF4N87nW/jOLVJuYo9ztUF1YqyjCqz3a58chEF+vEzv4ICUeFwaxZ8ecjpMdINvNYjh564gFo04PE3rDIK+8nEhugKBA+vYAi9+L40y2uSW6DaMNQFmGfGL6UxUoHGFvy3emNTosTRrw6sFJj8bppafYsbXrxdFFlmwuVEekdetLvSV03QNDYAxk1+Ychra63nlpjBS3fKIzSVN8De94gwZ6y3BkPuWATkcOplosGE15u6/MN4UqTRG6FQ4ZxRllDQTl5Dm+bvqwAU=
