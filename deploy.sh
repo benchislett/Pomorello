@@ -1,8 +1,3 @@
-## GENERATE BUILD FILES
-
-npm run build
-
-
 ## GET GIT INFO
 
 # Get the previous branch name so we can switch back correctly
