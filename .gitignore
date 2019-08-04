@@ -1,9 +1,8 @@
 # Node modules
 node_modules/
 
-# Parcel cache and build results
-.cache/
-dist/
-
 # Vim swapfiles
 *.swp
+
+# Webpack build results (found in gh-pages branch)
+public/
