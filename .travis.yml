@@ -1,6 +1,7 @@
 language: node_js
+
 node_js:
-  - "node"
+  - node
 
 install:
   - npm install
@@ -15,3 +16,7 @@ deploy:
   script: npm run deploy
   on:
     branch: master
+
+env:
+  global:
+    secure: IJ+sg1YL6Z4J7zpYmlmF6wqNQ/3Ta4riqROnQOZe+Re830KntXcO+zAsu+5KfXNOnsDzAV0vjJmKVFUDKq7o78c13yn7purRcbd5vfZzD2slAgeTx2STArKw3tcKzDl67rpf/Jc8XhM3ZLrns/h6Af6B0igu/qkKzAZ6XY8Hjau32KEI9cAnuS49e+9+Nwzy2N++mcRNB7ETo3goRmCklx5NwnFE1unNeOD0XzYtwjvMSQGX+yh/POPXGs1+8cLVBycyU3aJ4JbLQPkiZtU/XFR6XaJg6wcYlqmbfsJhLlIK7rHYoCy5vtCApkEXWp9TmX7UlCX4riU0uucBTm40xHihugsD7tT8fy5fRfs2LUsQ5qjoHKpsqD7wsKQ+YkwvZmROzeiI+ECQ14X2lJnLmK0B16dtUmYRNV8hU924KVX7QaZD8waYDK8BqRKaHhI8MdfsMisg69FZ9VfXi+TmtruB3ZlBMdFiaVdfik/J1wmege1rFgCKWW7vXFVB3nGadc9MtIMFL1zOynclFZnbMJy4dUkVO1AwPriXcuSAKFo3g2DM4Rn7yLxasUk67mPKl/x/23OysQgbFqQpXTCMgjCmsiaRk+x8Kw+lJ1mNlN2fEwTEWuMkwseoXwVMt7LyGSJv7yut4YAU3Gbn5eQOmFZcCZGKknfTR+2BehrVg88=
