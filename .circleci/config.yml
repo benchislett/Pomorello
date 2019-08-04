@@ -58,6 +58,9 @@ jobs:
     executor:
       name: node
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "e6:3f:a1:49:d9:19:6e:c6:05:12:19:a2:cd:27:a6:68" 
       - checkout:
           path: ~/Pomorello
       - npminstall
