@@ -5,6 +5,7 @@ OLD_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 # Get the remote url from git config for pushing later
 REMOTE_URL=$(git config --get remote.origin.url)
+echo "Remote: $REMOTE_URL"
 
 # Set the folder that contains the build files
 DEPLOY_FOLDER=public/
