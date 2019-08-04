@@ -10,4 +10,8 @@ script:
   - npm test
 
 deploy:
-  - npm run deploy
+  provider: script
+  skip_cleanup: true
+  script: npm run deploy
+  on:
+    branch: master
