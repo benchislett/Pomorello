@@ -21,7 +21,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         text: "Click me!",
-        callback: Menu,
+        callback: Menu
       }
     ];
   }
