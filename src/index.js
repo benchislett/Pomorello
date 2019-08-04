@@ -4,7 +4,7 @@ function Start(t, opts) {
 }
 
 function Menu(t, opts) {
-  t.popup({
+  /*t.popup({
     title: "Start a Pomodoro",
 
     items: [
@@ -13,7 +13,7 @@ function Menu(t, opts) {
         callback: Start,
       }
     ]
-  });
+  });*/
 }
 
 window.TrelloPowerUp.initialize({
