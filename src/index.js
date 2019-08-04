@@ -33,6 +33,7 @@ window.TrelloPowerUp.initialize({
           if (!is_active) {
             return {
               text: "No Pomodoro active",
+              color: 'green',
               refresh: 30
             };
           }
@@ -41,12 +42,13 @@ window.TrelloPowerUp.initialize({
           const age_str = `${(Math.floor(age_ms / 60000) % 60).toFixed(0)}:${(Math.floor(age_ms / 1000) % 60).toFixed(0)}`;
           return {
             text: "Pomodoro: " + age_str,
+            color: 'red',
             refresh: 30
           }
         }
       },
       {
-        dynamic: function(){
+        dynamic: async () => {
           return {
             text: 'Dynamic ' + (Math.random() * 100).toFixed(0).toString(),
             color: 'green',
