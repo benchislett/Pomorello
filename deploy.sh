@@ -27,7 +27,8 @@ git --work-tree $DEPLOY_FOLDER add --all
 git --work-tree $DEPLOY_FOLDER commit -m "Add build files"
 
 # Push the changes to the remote
-git push --quiet origin $DEPLOY_BRANCH
+git pull origin $DEPLOY_BRANCH
+git push origin $DEPLOY_BRANCH
 
 
 ## RESET STATE
