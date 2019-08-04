@@ -39,7 +39,7 @@ window.TrelloPowerUp.initialize({
           const age_ms = Date.now() - start_ms;
           const age_str = `${(Math.floor(age_ms / 60000) % 60).toFixed(0)}:${(Math.floor(age_ms / 1000) % 60).toFixed(0)}`;
           return {
-            text: `Pomorello: ${age_str}`
+            text: "Pomorello: " + age_str
           }
         }
       }
