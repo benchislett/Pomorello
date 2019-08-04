@@ -1,0 +1,80 @@
+version: 2.1
+
+commands:
+  npminstall:
+    description: "Install dependencies"
+    steps:
+      - run: npm install
+  build:
+    description: "Run build steps"
+    steps:
+      - run:
+          name: lint
+          command: npm run lint
+      - run:
+          name: build
+          command: npm run build
+  test:
+    description: "Run test steps"
+    steps:
+      - run:
+          name: test
+          command: npm test
+  load-cache:
+    description: "Restore cache from package.json hash"
+    steps:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies # fall back to latest cache if no exact match
+  dump-cache:
+    description: "Save cache according to package.json hash"
+    steps:
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+executors:
+  node:
+    working_directory: ~/Pomorello
+    docker:
+      - image: circleci/node:lts
+
+jobs:
+  build:
+    executor:
+      name: node
+    steps:
+      - checkout:
+          path: ~/Pomorello
+      - load-cache
+      - npminstall
+      - build
+      - test
+      - dump-cache
+
+  deploy:
+    executor:
+      name: node
+    steps:
+      - checkout:
+          path: ~/Pomorello
+      - npminstall
+      - build
+      - run:
+          name: run-deploy-script
+          command: bash ./deploy.sh
+
+workflows:
+  version: 2.1
+  Pomorello:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
