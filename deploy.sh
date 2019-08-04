@@ -3,9 +3,6 @@
 # Get the previous branch name so we can switch back correctly
 OLD_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-# Get the remote url from git config for pushing later
-REMOTE_URL=$(git config --get remote.origin.url)
-
 # Set the folder that contains the build files
 DEPLOY_FOLDER=public/
 
@@ -30,7 +27,7 @@ git --work-tree $DEPLOY_FOLDER add --all
 git --work-tree $DEPLOY_FOLDER commit -m "Add build files"
 
 # Push the changes to the remote
-git push --quiet $REMOTE_URL $DEPLOY_BRANCH
+git push --quiet origin $DEPLOY_BRANCH
 
 
 ## RESET STATE
