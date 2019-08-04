@@ -1,7 +1,11 @@
+
 window.TrelloPowerUp.initialize({
-  "card-badges": async function(t, opts) {
-    const id = await t.card("id");
-    console.log("Got id: ", id);
-    return [{text: id}];
+  "card-buttons": async (t, opts) => {
+    return [
+      {
+        text: 'Click me!',
+        callback: x => console.log("Clicked with: ", JSON.stringify(x))
+      }
+    ];
   }
 });

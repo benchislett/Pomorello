@@ -4,8 +4,9 @@
   "description": "A light Pomodoro tracker for Trello cards",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "test": "echo \"No tests yet\"",
+    "build": "webpack",
+    "deploy": "bash deploy.sh"
   },
   "repository": {
     "type": "git",
