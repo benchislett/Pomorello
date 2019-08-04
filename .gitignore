@@ -1,1 +1,6 @@
+# Node modules
 node_modules/
+
+# Parcel cache and build results
+.cache/
+dist/
