@@ -29,7 +29,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         dynamic: async () => {
-          const is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
+          let is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
           const start_ms = await t.get("card", "private", "POMORELLO_START");
           const age_ms = Date.now() - start_ms;
           if (age_ms > 1000*60*25) {
