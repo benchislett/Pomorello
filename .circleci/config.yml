@@ -74,6 +74,9 @@ workflows:
   Pomorello:
     jobs:
       - build
+          filters:
+            branches:
+              ignore: gh-pages # Don't trigger a build off the auto-generated commit
       - deploy:
           requires:
             - build
