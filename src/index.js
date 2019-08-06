@@ -30,6 +30,12 @@ window.TrelloPowerUp.initialize({
       {
         dynamic: async () => {
           const is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
+          const start_ms = await t.get("card", "private", "POMORELLO_START");
+          const age_ms = Date.now() - start_ms;
+          if (age_ms > 1000*60*25) {
+            is_active = false;
+            t.set("card", "private", "POMORELLO_ACTIVE", false);
+          }
           if (!is_active) {
             return {
               text: "No Pomodoro active",
@@ -37,8 +43,6 @@ window.TrelloPowerUp.initialize({
               refresh: 30
             };
           }
-          const start_ms = await t.get("card", "private", "POMORELLO_START");
-          const age_ms = Date.now() - start_ms;
           const age_str = `${(Math.floor(age_ms / 60000) % 60).toFixed(0)}:${(Math.floor(age_ms / 1000) % 60).toFixed(0)}`;
           return {
             text: "Pomodoro: " + age_str,
