@@ -73,7 +73,7 @@ workflows:
   version: 2.1
   Pomorello:
     jobs:
-      - build
+      - build:
           filters:
             branches:
               ignore: gh-pages # Don't trigger a build off the auto-generated commit
