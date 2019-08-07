@@ -10,7 +10,7 @@ function getTimeStr(age_ms) {
   const mins_str = mins.toFixed(0).padStart(2, "0");
 
   const secs = Math.floor(time_ms / 1000) % 60;
-  const secs_str = secs.toFixed(0).padStart(2, "0");;
+  const secs_str = secs.toFixed(0).padStart(2, "0");
 
   return `${mins_str}:${secs_str}`
 }
@@ -40,7 +40,7 @@ export function StatusBadge(age_ms, dynamic = true) {
 
 export function BreakBadge(age_ms, dynamic = true) {
   const break_badge = {
-    text: `Resting: ${getTimeStr(age_ms)}`
+    text: `Resting: ${getTimeStr(age_ms)}`,
     color: "blue"
   };
 
