@@ -1,4 +1,4 @@
-const dynamic = {
+const dynamic_attrs = {
   dynamic: true,
   refresh: 30
 }
@@ -19,7 +19,7 @@ export function NoBadge(dynamic = true) {
   const no_badge = {};
 
   if (dynamic) {
-    return {...dynamic, ...no_badge};
+    return {...dynamic_attrs, ...no_badge};
   else {
     return no_badge;
   }
@@ -32,7 +32,7 @@ export function StatusBadge(age_ms, dynamic = true) {
   };
 
   if (dynamic) {
-    return {...dynamic, ...status_badge};
+    return {...dynamic_attrs, ...status_badge};
   else {
     return status_badge;
   }
@@ -45,7 +45,7 @@ export function BreakBadge(age_ms, dynamic = true) {
   };
 
   if (dynamic) {
-    return {...dynamic, ...break_badge};
+    return {...dynamic_attrs, ...break_badge};
   else {
     return break_badge;
   }

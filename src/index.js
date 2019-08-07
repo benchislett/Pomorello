@@ -27,7 +27,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         dynamic: async () => {
-          let is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
+          const is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
           const is_break = await t.get("card", "private", "POMORELLO_BREAK", false);
           const start_ms = await t.get("card", "private", "POMORELLO_START", 0);
           const age_ms = Date.now() - start_ms;
