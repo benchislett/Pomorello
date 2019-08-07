@@ -1,7 +1,5 @@
-function Start(t, opts) {
-  console.log("Starting pomodoro!");
-  t.set("card", "private", {POMORELLO_ACTIVE: true, POMORELLO_START: Date.now()});
-}
+import { Start, Break, End } from "./logic.js"
+import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
 
 function Menu(t, opts) {
   t.popup({
@@ -20,7 +18,7 @@ window.TrelloPowerUp.initialize({
   "card-buttons": async (t, opts) => {
     return [
       {
-        text: "Click me!",
+        text: "Pomorello",
         callback: Menu
       }
     ];
@@ -30,24 +28,21 @@ window.TrelloPowerUp.initialize({
       {
         dynamic: async () => {
           let is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
-          const start_ms = await t.get("card", "private", "POMORELLO_START");
+          const is_break = await t.get("card", "private", "POMORELLO_BREAK", false);
+          const start_ms = await t.get("card", "private", "POMORELLO_START", 0);
           const age_ms = Date.now() - start_ms;
-          if (age_ms > 1000*60*25) {
-            is_active = false;
-            t.set("card", "private", "POMORELLO_ACTIVE", false);
-          }
-          if (!is_active) {
-            return {
-              text: "No Pomodoro active",
-              color: 'green',
-              refresh: 30
-            };
-          }
-          const age_str = `${(Math.floor(age_ms / 60000) % 60).toFixed(0)}:${(Math.floor(age_ms / 1000) % 60).toFixed(0)}`;
-          return {
-            text: "Pomodoro: " + age_str,
-            color: 'red',
-            refresh: 30
+
+          if (is_active) {
+            if (age_ms > 1000*60*25) {
+              await Break(t);
+              return BreakBadge(age_ms, true);
+            } else {
+              return StatusBadge(age_ms, true);
+            }
+          } else if (is_break) {
+            return BreakBadge(age_ms, true);
+          } else {
+            return NoBadge(true);
           }
         }
       }
