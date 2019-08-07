@@ -11,8 +11,8 @@ export async function Break(t) {
   console.log("Taking a break...");
   
   const start_ms_p = t.get("card", "private", "POMORELLO_START");
-  const prev_s_p = t.get("card", "private", "POMORELLO_SECONDS");
-  const prev_sets_p = t.get("card", "private", "POMORELLO_SETS");
+  const prev_s_p = t.get("card", "private", "POMORELLO_SECONDS", 0);
+  const prev_sets_p = t.get("card", "private", "POMORELLO_SETS", 0);
   const [start_ms, prev_s, prev_sets] = await Promise.all([start_ms_p, prev_s_p, prev_sets_p]);
   
   const now = Date.now();
@@ -33,7 +33,7 @@ export async function End(t) {
   return t.set("card", "private", {
     POMORELLO_ACTIVE: false,
     POMORELLO_BREAK: false,
-    POMORELLO_SECONDS: -1
+    POMORELLO_START: 0
   });
 }
 

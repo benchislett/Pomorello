@@ -1,5 +1,4 @@
 const dynamic_attrs = {
-  dynamic: true,
   refresh: 30
 }
 
