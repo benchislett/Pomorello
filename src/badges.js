@@ -20,7 +20,7 @@ export function NoBadge(dynamic = true) {
 
   if (dynamic) {
     return {...dynamic_attrs, ...no_badge};
-  else {
+  } else {
     return no_badge;
   }
 }
@@ -33,7 +33,7 @@ export function StatusBadge(age_ms, dynamic = true) {
 
   if (dynamic) {
     return {...dynamic_attrs, ...status_badge};
-  else {
+  } else {
     return status_badge;
   }
 }
@@ -46,7 +46,7 @@ export function BreakBadge(age_ms, dynamic = true) {
 
   if (dynamic) {
     return {...dynamic_attrs, ...break_badge};
-  else {
+  } else {
     return break_badge;
   }
 }
