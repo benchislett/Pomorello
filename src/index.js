@@ -1,4 +1,4 @@
-import { Start, Break, End } from "./logic.js"
+import { Start, Break, End } from "./update.js"
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
 
 function Menu(t, opts) {
