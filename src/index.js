@@ -1,5 +1,6 @@
 import { Start, Break, End } from "./update.js"
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
+import { set_length, break_length } from "./defs.js"
 
 function Menu(t, opts) {
   t.popup({
@@ -33,14 +34,14 @@ window.TrelloPowerUp.initialize({
           const age_ms = Date.now() - start_ms;
           console.log(is_active, is_break, start_ms, age_ms);
           if (is_active) {
-            if (age_ms > 1000*60*25) {
+            if (age_ms > set_length) {
               await Break(t);
               return BreakBadge(age_ms, true);
             } else {
               return StatusBadge(age_ms, true);
             }
           } else if (is_break) {
-            if (age_ms > 1000*60*5) {
+            if (age_ms > break_length) {
               await End(t)
               return NoBadge(true);
             }

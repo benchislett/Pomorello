@@ -1,9 +1,11 @@
-const dynamic_attrs = {
-  refresh: 10
-}
+import { refresh, set_length, break_length } from "./defs.js"
 
-function getTimeStr(age_ms) {
-  const time_ms = 1000 * 60 * 25 - age_ms;
+const dynamic_attrs = {
+  refresh
+};
+
+function getTimeStr(upper, age_ms) {
+  const time_ms = upper - age_ms;
   
   const mins = Math.floor(time_ms / 60000) % 60;
   const mins_str = mins.toFixed(0).padStart(2, "0");
@@ -29,7 +31,7 @@ export function NoBadge(dynamic = true) {
 
 export function StatusBadge(age_ms, dynamic = true) {
   const status_badge = {
-    text: `Pomodoro Active: ${getTimeStr(age_ms)}`,
+    text: `Pomodoro Active: ${getTimeStr(set_length, age_ms)}`,
     color: "green"
   };
 
@@ -42,7 +44,7 @@ export function StatusBadge(age_ms, dynamic = true) {
 
 export function BreakBadge(age_ms, dynamic = true) {
   const break_badge = {
-    text: `Resting: ${getTimeStr(age_ms)}`,
+    text: `Resting: ${getTimeStr(break_length, age_ms)}`,
     color: "blue"
   };
 
