@@ -31,7 +31,7 @@ window.TrelloPowerUp.initialize({
           const is_break = await t.get("card", "private", "POMORELLO_BREAK", false);
           const start_ms = await t.get("card", "private", "POMORELLO_START", 0);
           const age_ms = Date.now() - start_ms;
-          console.log(await t.card("all"));
+          console.log(is_active, is_break, start_ms, age_ms);
           if (is_active) {
             if (age_ms > 1000*60*25) {
               await Break(t);
@@ -40,6 +40,10 @@ window.TrelloPowerUp.initialize({
               return StatusBadge(age_ms, true);
             }
           } else if (is_break) {
+            if (age_ms > 1000*60*5) {
+              await End(t)
+              return NoBadge(true);
+            }
             return BreakBadge(age_ms, true);
           } else {
             return NoBadge(true);
