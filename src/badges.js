@@ -15,7 +15,10 @@ function getTimeStr(age_ms) {
 }
 
 export function NoBadge(dynamic = true) {
-  const no_badge = {};
+  const no_badge = {
+    text: "No Pomodoro Active",
+    color: "yellow"
+  };
 
   if (dynamic) {
     return {...dynamic_attrs, ...no_badge};
