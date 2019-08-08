@@ -1,5 +1,5 @@
 const dynamic_attrs = {
-  refresh: 30
+  refresh: 10
 }
 
 function getTimeStr(age_ms) {
