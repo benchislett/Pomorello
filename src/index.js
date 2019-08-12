@@ -8,11 +8,11 @@ function Menu(t, opts) {
     items: [
       {
         text: "Plain 25/5",
-        callback: (t, opts) => Start(t, 25.0, 5.0)
+        callback: (t, opts) => Start(t, 1000 * 60 * 25.0, 1000 * 60 * 5.0)
       },
       {
         text: "Debug 1/0.5",
-        callback: (t, opts) => Start(t, 1.0, 0.5)
+        callback: (t, opts) => Start(t, 1000 * 60 * 1.0, 1000 * 60 * 0.5)
       }
     ]
   });
