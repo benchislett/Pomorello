@@ -1,9 +1,3 @@
-import { refresh, set_length, break_length } from "./defs.js"
-
-const dynamic_attrs = {
-  refresh
-};
-
 function getTimeStr(upper, age_ms) {
   const time_ms = upper - age_ms;
   
@@ -16,6 +10,8 @@ function getTimeStr(upper, age_ms) {
   return `${mins_str}:${secs_str}`
 }
 
+const refresh = 10;
+
 export function NoBadge(dynamic = true) {
   const no_badge = {
     text: "No Pomodoro Active",
@@ -23,33 +19,33 @@ export function NoBadge(dynamic = true) {
   };
 
   if (dynamic) {
-    return {...dynamic_attrs, ...no_badge};
+    return {refresh, ...no_badge};
   } else {
     return no_badge;
   }
 }
 
-export function StatusBadge(age_ms, dynamic = true) {
+export function StatusBadge(set_length, age_ms, dynamic = true) {
   const status_badge = {
     text: `Pomodoro Active: ${getTimeStr(set_length, age_ms)}`,
     color: "green"
   };
 
   if (dynamic) {
-    return {...dynamic_attrs, ...status_badge};
+    return {refresh, ...status_badge};
   } else {
     return status_badge;
   }
 }
 
-export function BreakBadge(age_ms, dynamic = true) {
+export function BreakBadge(break_length, age_ms, dynamic = true) {
   const break_badge = {
     text: `Resting: ${getTimeStr(break_length, age_ms)}`,
     color: "blue"
   };
 
   if (dynamic) {
-    return {...dynamic_attrs, ...break_badge};
+    return {refresh, ...break_badge};
   } else {
     return break_badge;
   }

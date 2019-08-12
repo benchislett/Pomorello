@@ -1,9 +1,11 @@
-export async function Start(t) {
+export async function Start(t, set_length, break_length) {
   console.log("Starting pomodoro!");
   return t.set("card", "private", {
     POMORELLO_ACTIVE: true,
     POMORELLO_BREAK: false,
-    POMORELLO_START: Date.now()
+    POMORELLO_START: Date.now(),
+    POMORELLO_SET_LENGTH: set_length,
+    POMORELLO_BREAK_LENGTH: break_length
   });
 }
 

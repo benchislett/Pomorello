@@ -1,9 +1,6 @@
-const refresh = 10; // Prod: 30s, Debug: 10s
-const set_length = 1000 * 60 * 1; // Prod: 25m, Debug: 1m
-const break_length = 1000 * 60 * 1; // Prod: 5m, Debug: 30s
+export class Config {
+  static refresh = 10;
+  static set_length = 1000 * 60 * 1;
+  static break_length = 1000 * 60 * 0.5;
+}
 
-export {
-  refresh,
-  set_length,
-  break_length
-};

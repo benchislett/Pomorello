@@ -1,6 +1,5 @@
 import { Start, Break, End } from "./update.js"
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
-import { set_length, break_length } from "./defs.js"
 
 function Menu(t, opts) {
   t.popup({
@@ -9,7 +8,11 @@ function Menu(t, opts) {
     items: [
       {
         text: "Plain 25/5",
-        callback: Start
+        callback: (t, opts) => Start(t, 25.0, 5.0)
+      },
+      {
+        text: "Debug 1/0.5",
+        callback: (t, opts) => Start(t, 1.0, 0.5)
       }
     ]
   });
@@ -31,23 +34,24 @@ window.TrelloPowerUp.initialize({
           const is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
           const is_break = await t.get("card", "private", "POMORELLO_BREAK", false);
           const start_ms = await t.get("card", "private", "POMORELLO_START", 0);
-          const age_ms = Date.now() - start_ms;
+          const set_length = await t.get("card", "private", "POMORELLO_SET_LENGTH", 1000 * 60 * 25);
+          const break_length = await t.get("card", "private", "POMORELLO_BREAK_LENGTH", 1000 * 60 * 5);
 
-          console.log(is_active, is_break, start_ms, age_ms);
+          const age_ms = Date.now() - start_ms;
 
 	  if (is_active) {
             if (age_ms > set_length) {
               await Break(t);
-              return BreakBadge(age_ms, true);
+              return BreakBadge(break_length, age_ms, true);
             } else {
-              return StatusBadge(age_ms, true);
+              return StatusBadge(set_length, age_ms, true);
             }
           } else if (is_break) {
             if (age_ms > break_length) {
               await End(t)
               return NoBadge(true);
             }
-            return BreakBadge(age_ms, true);
+            return BreakBadge(break_length, age_ms, true);
           } else {
             return NoBadge(true);
           }
