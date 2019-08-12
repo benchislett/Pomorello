@@ -20,7 +20,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         text: "Pomorello",
-        callback: Menu
+        callback: (t, opts) => t.set("card", "private", {POMORELLO_ACTIVE: true, POMORELLO_START: Date.now()})
       }
     ];
   },
