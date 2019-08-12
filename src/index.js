@@ -9,7 +9,7 @@ function Menu(t, opts) {
     items: [
       {
         text: "Plain 25/5",
-        callback: () => Start(t),
+        callback: () => t.set("card", "private", {POMORELLO_ACTIVE: true, POMORELLO_START: Date.now()})
       }
     ]
   });
@@ -20,7 +20,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         text: "Pomorello",
-        callback: (t, opts) => t.set("card", "private", {POMORELLO_ACTIVE: true, POMORELLO_START: Date.now()})
+        callback: Menu 
       }
     ];
   },
