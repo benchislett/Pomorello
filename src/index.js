@@ -9,7 +9,7 @@ function Menu(t, opts) {
     items: [
       {
         text: "Plain 25/5",
-        callback: Start,
+        callback: () => Start(t),
       }
     ]
   });
