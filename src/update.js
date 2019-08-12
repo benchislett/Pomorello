@@ -1,7 +1,7 @@
 export async function Start(t) {
   console.log("Starting pomodoro!");
   return t.set("card", "private", {
-    POMOERLLO_ACTIVE: true,
+    POMORELLO_ACTIVE: true,
     POMORELLO_BREAK: false,
     POMORELLO_START: Date.now()
   });
