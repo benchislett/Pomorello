@@ -19,8 +19,7 @@
     "url": "https://github.com/benchislett/Pomorello/issues"
   },
   "homepage": "https://github.com/benchislett/Pomorello#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "webpack-cli": "^3.3.6",
     "webpack": "^4.39.1"
