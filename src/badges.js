@@ -20,7 +20,8 @@ export function StatusBadge(state) {
     text: `Pomodoro Active: ${state.timeStr()}`,
     color: "green"
   };
-
+  console.log("Displaying status badge: ", JSON.stringify(status_badge, null, 2));
+  return {refresh: 10, ...status_badge};
   return makeDynamic(state, status_badge);
 }
 
