@@ -1,3 +1,5 @@
+import { Logger } from "./logger.js"
+
 export async function Start(t, set_length, break_length) {
   Logger.trace("Starting new set");
   return t.set("card", "shared", {
