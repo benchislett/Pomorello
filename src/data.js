@@ -14,13 +14,13 @@ export class State{
     const name_p = t.card("name");
     let data = (await t.getAll());
     console.log("Got data: ", JSON.stringify(data, null, 2));
-    data = data.card.shared;
+    data = data.card.shared || {};
 
-    this.is_active = data.POMORELLO_ACTIVE;
-    this.is_break = data.POMORELLO_BREAK;
-    this.start_ms = data.POMORELLO_START;
-    this.set_length = data.POMORELLO_SET_LENGTH;
-    this.break_length = data.POMORELLO_BREAK_LENGTH;
+    this.is_active = data.POMORELLO_ACTIVE || this.is_active;
+    this.is_break = data.POMORELLO_BREAK || this.is_break;
+    this.start_ms = data.POMORELLO_START || this.start_ms;
+    this.set_length = data.POMORELLO_SET_LENGTH || this.set_length;
+    this.break_length = data.POMORELLO_BREAK_LENGTH || this.break_length;
     this.name = (await name_p).name;
   }
 
