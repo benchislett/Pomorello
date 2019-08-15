@@ -60,3 +60,4 @@ window.TrelloPowerUp.initialize({
     ];
   }
 });
+
