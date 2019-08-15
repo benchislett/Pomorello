@@ -12,8 +12,7 @@ export class State{
 
   async fetch(t) {
     const name_p = t.card("name");
-    let data = (await t.getAll());
-    console.log("Got data: ", JSON.stringify(data, null, 2));
+    let data = await t.getAll();
     data = data.card.shared || {};
 
     this.is_active = data.POMORELLO_ACTIVE || this.is_active;
@@ -22,6 +21,8 @@ export class State{
     this.set_length = data.POMORELLO_SET_LENGTH || this.set_length;
     this.break_length = data.POMORELLO_BREAK_LENGTH || this.break_length;
     this.name = (await name_p).name;
+
+    console.log(JSON.stringify(this, null, 2));
   }
 
   async sync(t) {
