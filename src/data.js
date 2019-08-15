@@ -37,7 +37,7 @@ export class State{
   }
 
   age() {
-    return Date.now() - start_ms;
+    return Date.now() - this.start_ms;
   }
 
   timeStr() {
