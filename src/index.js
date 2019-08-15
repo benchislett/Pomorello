@@ -28,7 +28,6 @@ window.TrelloPowerUp.initialize({
     ];
   },
   "card-badges": async (t, opts) => {
-    console.log(Notification.permission);
     return [
       {
         dynamic: async () => {

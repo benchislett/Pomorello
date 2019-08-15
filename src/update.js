@@ -20,9 +20,9 @@ export async function Break(t) {
   const new_s = Math.ceil((now - start_ms) / 1000.0) + prev_s;
   
   t.alert({
-    message: `Pomodoro for card ${name} complete. Time to take a break!`,
+    message: `Pomodoro for card ${name.name} complete. Time to take a break!`,
     duration: 10,
-    display: "info"
+    display: "success"
   });
 
   return t.set("card", "private", {
