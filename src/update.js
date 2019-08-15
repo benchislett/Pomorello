@@ -38,7 +38,7 @@ export async function End(t) {
   const name = await t.card("name");
 
   t.alert({
-    message: `Break for card ${name} has ended!`
+    message: `Break for card ${name} has ended!`,
     duration: 10,
     display: "success"
   });
