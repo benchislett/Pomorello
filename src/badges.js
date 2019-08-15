@@ -1,55 +1,35 @@
-const refresh = 10;
-
-function getTimeStr(upper, age_ms) {
-  const time_ms = upper - age_ms;
-  let time_s = Math.floor(time_ms / 1000); 
-  time_s = refresh * Math.ceil(time_s / refresh);
-
-  const mins = Math.floor(time_s / 60) % 60;
-  const mins_str = mins.toFixed(0).padStart(2, "0");
-
-  const secs = time_s % 60;
-  const secs_str = secs.toFixed(0).padStart(2, "0");
-
-  return `${mins_str}:${secs_str}`
+function makeDynamic(state, item) {
+  if (state.refresh) {
+    return {refresh: state.refresh, ...item};
+  } else {
+    return item;
+  }
 }
 
-export function NoBadge(dynamic = true) {
+export function NoBadge(state) {
   const no_badge = {
     text: "No Pomodoro Active",
     color: "yellow"
   };
 
-  if (dynamic) {
-    return {refresh, ...no_badge};
-  } else {
-    return no_badge;
-  }
+  return makeDynamic(state, no_badge);
 }
 
-export function StatusBadge(set_length, age_ms, dynamic = true) {
+export function StatusBadge(state) {
   const status_badge = {
-    text: `Pomodoro Active: ${getTimeStr(set_length, age_ms)}`,
+    text: `Pomodoro Active: ${state.timeStr()}`,
     color: "green"
   };
 
-  if (dynamic) {
-    return {refresh, ...status_badge};
-  } else {
-    return status_badge;
-  }
+  return makeDynamic(state, status_badge);
 }
 
-export function BreakBadge(break_length, age_ms, dynamic = true) {
+export function BreakBadge(state) {
   const break_badge = {
-    text: `Resting: ${getTimeStr(break_length, age_ms)}`,
+    text: `Resting: ${state.timeStr()}`,
     color: "blue"
   };
 
-  if (dynamic) {
-    return {refresh, ...break_badge};
-  } else {
-    return break_badge;
-  }
+  return makeDynamic(state, break_badge);
 }
 

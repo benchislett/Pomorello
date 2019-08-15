@@ -1,5 +1,6 @@
 import { Start, Break, End } from "./update.js"
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
+import { State } from "./data.js"
 
 function Menu(t, opts) {
   t.popup({
@@ -31,29 +32,26 @@ window.TrelloPowerUp.initialize({
     return [
       {
         dynamic: async () => {
-          const is_active = await t.get("card", "private", "POMORELLO_ACTIVE", false);
-          const is_break = await t.get("card", "private", "POMORELLO_BREAK", false);
-          const start_ms = await t.get("card", "private", "POMORELLO_START", 0);
-          const set_length = await t.get("card", "private", "POMORELLO_SET_LENGTH", 1000 * 60 * 25);
-          const break_length = await t.get("card", "private", "POMORELLO_BREAK_LENGTH", 1000 * 60 * 5);
+          const state = new State();
+          await state.fetch(t);
 
-          const age_ms = Date.now() - start_ms;
+          const age_ms = state.age();
 
-	  if (is_active) {
-            if (age_ms > set_length) {
-              await Break(t);
-              return BreakBadge(break_length, age_ms, true);
+          if (is_active) {
+            if (age_ms > state.set_length) {
+              await Break(t, state);
+              return BreakBadge(state);
             } else {
-              return StatusBadge(set_length, age_ms, true);
+              return StatusBadge(state);
             }
-          } else if (is_break) {
-            if (age_ms > break_length) {
-              await End(t)
-              return NoBadge(true);
+          } else if (state.is_break) {
+            if (age_ms > state.break_length) {
+              await End(t, state)
+              return NoBadge(state);
             }
-            return BreakBadge(break_length, age_ms, true);
+            return BreakBadge(state);
           } else {
-            return NoBadge(true);
+            return NoBadge(state);
           }
         }
       }
