@@ -1,5 +1,5 @@
 export async function Start(t, set_length, break_length) {
-  return t.set("card", "private", {
+  return t.set("card", "shared", {
     POMORELLO_ACTIVE: true,
     POMORELLO_BREAK: false,
     POMORELLO_START: Date.now(),
