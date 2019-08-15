@@ -1,16 +1,17 @@
+const refresh = 10;
+
 function getTimeStr(upper, age_ms) {
   const time_ms = upper - age_ms;
   
   const mins = Math.floor(time_ms / 60000) % 60;
   const mins_str = mins.toFixed(0).padStart(2, "0");
 
-  const secs = Math.floor(time_ms / 1000) % 60;
+  let secs = Math.floor(time_ms / 1000);
+  secs = (refresh * Math.ceil(secs / refresh)) % 60;
   const secs_str = secs.toFixed(0).padStart(2, "0");
 
   return `${mins_str}:${secs_str}`
 }
-
-const refresh = 10;
 
 export function NoBadge(dynamic = true) {
   const no_badge = {
