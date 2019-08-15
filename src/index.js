@@ -3,6 +3,7 @@ import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
 import { State } from "./data.js"
 
 function Menu(t, opts) {
+  console.log("Showing dropdown powerup menu");
   t.popup({
     title: "Start a Pomodoro",
 
@@ -29,15 +30,18 @@ window.TrelloPowerUp.initialize({
     ];
   },
   "card-badges": async (t, opts) => {
+    console.log("Loading card-badges");
     return [
       {
         dynamic: async () => {
           const state = new State();
+          console.log("State initialized");
           await state.fetch(t);
+          console.log("State retrieved");
 
           const age_ms = state.age();
 
-          if (is_active) {
+          if (state.is_active) {
             if (age_ms > state.set_length) {
               await Break(t, state);
               return BreakBadge(state);

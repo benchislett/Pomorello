@@ -7,6 +7,7 @@ function makeDynamic(state, item) {
 }
 
 export function NoBadge(state) {
+  console.log("Displaying empty badge");
   const no_badge = {
     text: "No Pomodoro Active",
     color: "yellow"
@@ -16,17 +17,17 @@ export function NoBadge(state) {
 }
 
 export function StatusBadge(state) {
-  console.log("Displaying status badge...");
+  console.log("Displaying status badge");
   const status_badge = {
     text: `Pomodoro Active: ${state.timeStr()}`,
     color: "green"
   };
-  console.log("Displaying status badge: ", JSON.stringify(status_badge, null, 2));
-  return {refresh: 10, ...status_badge};
+
   return makeDynamic(state, status_badge);
 }
 
 export function BreakBadge(state) {
+  console.log("Displaying break badge");
   const break_badge = {
     text: `Resting: ${state.timeStr()}`,
     color: "blue"

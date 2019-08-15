@@ -1,4 +1,5 @@
 export async function Start(t, set_length, break_length) {
+  console.log("Starting new set");
   return t.set("card", "shared", {
     POMORELLO_ACTIVE: true,
     POMORELLO_BREAK: false,
@@ -9,6 +10,7 @@ export async function Start(t, set_length, break_length) {
 }
 
 export async function Break(t, state) {
+  console.log("Set finished");
   t.alert({
     message: `Pomodoro for card ${state.name} complete. Time to take a break!`,
     duration: 10,
@@ -23,6 +25,7 @@ export async function Break(t, state) {
 }
 
 export async function End(t, state) {
+  console.log("Break finished");
   t.alert({
     message: `Break for card ${state.name} has ended!`,
     duration: 10,
