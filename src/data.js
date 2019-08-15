@@ -12,8 +12,9 @@ export class State{
 
   async fetch(t) {
     const name_p = t.card("name");
-    const data = (await t.getAll()).card.shared;
+    let data = (await t.getAll());
     console.log("Got data: ", JSON.stringify(data, null, 2));
+    data = data.card.shared;
 
     this.is_active = data.POMORELLO_ACTIVE;
     this.is_break = data.POMORELLO_BREAK;
