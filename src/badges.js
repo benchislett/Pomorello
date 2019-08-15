@@ -16,6 +16,7 @@ export function NoBadge(state) {
 }
 
 export function StatusBadge(state) {
+  console.log("Displaying status badge...");
   const status_badge = {
     text: `Pomodoro Active: ${state.timeStr()}`,
     color: "green"
