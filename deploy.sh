@@ -7,4 +7,4 @@ export GIT_DEPLOY_REPO=git@github.com:benchislett/Pomorello.git
 
 curl https://raw.githubusercontent.com/X1011/git-directory-deploy/master/deploy.sh > deploy_tmp.sh
 
-bash deploy_tmp.sh -e -m "Update build files"
+bash deploy_tmp.sh -e -m "[ci skip] Update build files"
