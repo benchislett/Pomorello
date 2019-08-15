@@ -43,7 +43,7 @@ export class State{
 
     if (this.is_active) {
       length = this.set_length;
-    } else if {
+    } else if (this.is_break) {
       length = this.break_length;
     }
 
