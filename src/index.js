@@ -42,19 +42,27 @@ window.TrelloPowerUp.initialize({
           const age_ms = state.age();
 
           if (state.is_active) {
+            console.log("Pomodoro active");
             if (age_ms > state.set_length) {
+              console.log("Pomodoro expired");
               await Break(t, state);
               return BreakBadge(state);
             } else {
+              console.log("Pomodoro in progress");
               return StatusBadge(state);
             }
           } else if (state.is_break) {
+            console.log("Break active");
             if (age_ms > state.break_length) {
+              console.log("Break expired");
               await End(t, state)
               return NoBadge(state);
+            } else {
+              console.log("Break in progress");
+              return BreakBadge(state);
             }
-            return BreakBadge(state);
           } else {
+            console.log("No Pomodoro active");
             return NoBadge(state);
           }
         }
