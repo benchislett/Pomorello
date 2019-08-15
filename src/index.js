@@ -1,9 +1,10 @@
 import { Start, Break, End } from "./update.js"
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
 import { State } from "./data.js"
+import { Logger } from "./logger.js"
 
 function Menu(t, opts) {
-  console.log("Showing dropdown powerup menu");
+  Logger.trace("Showing dropdown powerup menu");
   t.popup({
     title: "Start a Pomodoro",
 
@@ -30,39 +31,40 @@ window.TrelloPowerUp.initialize({
     ];
   },
   "card-badges": async (t, opts) => {
-    console.log("Loading card-badges");
+    Logger.trace("Loading card-badges");
     return [
       {
         dynamic: async () => {
           const state = new State();
-          console.log("State initialized");
+          Logger.debug("State initialized");
+
           await state.fetch(t);
-          console.log("State retrieved");
+          Logger.info(`State retrieved for card ${state.name}`);
 
           const age_ms = state.age();
 
           if (state.is_active) {
-            console.log("Pomodoro active");
+            Logger.trace("Pomodoro active");
             if (age_ms > state.set_length) {
-              console.log("Pomodoro expired");
+              Logger.trace("Pomodoro expired");
               await Break(t, state);
               return BreakBadge(state);
             } else {
-              console.log("Pomodoro in progress");
+              Logger.trace("Pomodoro in progress");
               return StatusBadge(state);
             }
           } else if (state.is_break) {
-            console.log("Break active");
+            Logger.trace("Break active");
             if (age_ms > state.break_length) {
-              console.log("Break expired");
+              Logger.trace("Break expired");
               await End(t, state)
               return NoBadge(state);
             } else {
-              console.log("Break in progress");
+              Logger.trace("Break in progress");
               return BreakBadge(state);
             }
           } else {
-            console.log("No Pomodoro active");
+            Logger.trace("No Pomodoro active");
             return NoBadge(state);
           }
         }

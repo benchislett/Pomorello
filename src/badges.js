@@ -1,3 +1,5 @@
+import { Logger } from "./logger.js"
+
 function makeDynamic(state, item) {
   if (state.refresh) {
     return {refresh: state.refresh, ...item};
@@ -7,7 +9,7 @@ function makeDynamic(state, item) {
 }
 
 export function NoBadge(state) {
-  console.log("Displaying empty badge");
+  Logger.debug(`Displaying empty badge for card ${state.name}`);
   const no_badge = {
     text: "No Pomodoro Active",
     color: "yellow"
@@ -17,7 +19,7 @@ export function NoBadge(state) {
 }
 
 export function StatusBadge(state) {
-  console.log("Displaying status badge");
+  Logger.debug(`Displaying status badge for card ${state.name}`);
   const status_badge = {
     text: `Pomodoro Active: ${state.timeStr()}`,
     color: "green"
@@ -27,7 +29,7 @@ export function StatusBadge(state) {
 }
 
 export function BreakBadge(state) {
-  console.log("Displaying break badge");
+  Logger.debug(`Displaying break badge for card ${state.name}`);
   const break_badge = {
     text: `Resting: ${state.timeStr()}`,
     color: "blue"

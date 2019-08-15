@@ -1,5 +1,8 @@
+import { Logger } from "./logger.js"
+
 export class State{
   constructor(refresh = 10) {
+    Logger.trace(`Constructing new card with refresh ${refresh}`);
     this.is_active = false;
     this.is_break = false;
     this.start_ms = 0;
@@ -11,9 +14,11 @@ export class State{
   }
 
   async fetch(t) {
+    Logger.trace("Fetching data");
     const name_p = t.card("name");
     let data = await t.getAll();
     data = data.card.shared || {};
+    Logger.trace("Got data");
 
     this.is_active = data.POMORELLO_ACTIVE || this.is_active;
     this.is_break = data.POMORELLO_BREAK || this.is_break;
@@ -22,10 +27,11 @@ export class State{
     this.break_length = data.POMORELLO_BREAK_LENGTH || this.break_length;
     this.name = (await name_p).name;
 
-    console.log(JSON.stringify(this, null, 2));
+    Logger.info(JSON.stringify(this, null, 2));
   }
 
   async sync(t) {
+    Logger.trace(`Syncing card ${this.name}`);
     return t.set("card", "shared", {
       POMORELLO_ACTIVE: this.is_active,
       POMORELLO_BREAK: this.is_break,
@@ -37,10 +43,12 @@ export class State{
   }
 
   age() {
+    Logger.trace(`Computing age for card ${this.name}`);
     return Date.now() - this.start_ms;
   }
 
   timeStr() {
+    Logger.trace(`Formatting time for card ${this.name}`);
     let length;
 
     if (this.is_active) {
@@ -54,6 +62,7 @@ export class State{
     if (this.refresh) {
       time_s = this.refresh * Math.ceil(time_s / this.refresh);
     }
+    Logger.trace(`Formatting time for card ${this.name}: ${time_s} seconds`);
 
     const mins = Math.floor(time_s / 60) % 60;
     const mins_str = mins.toFixed(0).padStart(2, "0");
