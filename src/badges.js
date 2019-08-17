@@ -10,10 +10,7 @@ function makeDynamic(state, item) {
 
 export function NoBadge(state) {
   Logger.debug(`Displaying empty badge for card ${state.name}`);
-  const no_badge = {
-    text: "No Pomodoro Active",
-    color: "yellow"
-  };
+  const no_badge = {};
 
   return makeDynamic(state, no_badge);
 }
