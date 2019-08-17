@@ -22,6 +22,7 @@ export async function Break(t, state) {
   state.is_active = false;
   state.is_break = true;
   state.start = Date.now();
+  state.addSet();
 
   return state.sync(t);
 }

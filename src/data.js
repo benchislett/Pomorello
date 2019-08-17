@@ -8,6 +8,7 @@ export class State{
     this.start_ms = 0;
     this.set_length = 1000 * 60 * 25;
     this.break_length = 1000 * 60 * 5;
+    this.set_hist = {};
     this.name = "?";
 
     this.refresh = refresh;
@@ -25,6 +26,7 @@ export class State{
     this.start_ms = data.POMORELLO_START || this.start_ms;
     this.set_length = data.POMORELLO_SET_LENGTH || this.set_length;
     this.break_length = data.POMORELLO_BREAK_LENGTH || this.break_length;
+    this.set_hist = data.POMORELLO_SET_HISTORY || this.set_hist;
     this.name = (await name_p).name;
 
     Logger.info(JSON.stringify(this, null, 2));
@@ -37,7 +39,8 @@ export class State{
       POMORELLO_BREAK: this.is_break,
       POMORELLO_START: this.start_ms,
       POMORELLO_SET_LENGTH: this.set_length,
-      POMORELLO_BREAK_LENGTH: this.break_length
+      POMORELLO_BREAK_LENGTH: this.break_length,
+      POMORELLO_SET_HISTORY: this.set_hist
       // Name should be read-only
     });
   }
@@ -71,6 +74,12 @@ export class State{
     const secs_str = secs.toFixed(0).padStart(2, "0");
 
     return `${mins_str}:${secs_str}`;
+  }
+
+  addSet() {
+    Logger.trace(`Incrementing history of completed set for card ${this.name}`);
+    const prev = this.set_hist[this.set_length] || 0;
+    this.set_hist[this.set_length] = prev + 1;
   }
 }
 
