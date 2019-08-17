@@ -14,7 +14,7 @@ class Sound {
 }
 
 const bell = new Sound("https://raw.githubusercontent.com/benchislett/Pomorello/gh-pages/resources/bell.mp3")
-bell.play().then(() => console.log("sound played fine!")).catch(err => console.error(JSON.stringify(err, null, 2)));
+bell.play().then(() => console.log("sound played fine!")).catch(console.error);
 
 export {
   bell
