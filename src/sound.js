@@ -13,8 +13,9 @@ class Sound {
   }
 }
 
+let bell = {play: () => {}};
 try {
-  const bell = new Sound("./resources/bell.mp3")
+  bell = new Sound("./resources/bell.mp3")
 } catch (err) {
   console.log(JSON.stringify(err, null, 2));
 }
