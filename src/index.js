@@ -70,6 +70,27 @@ window.TrelloPowerUp.initialize({
         }
       }
     ];
+  },
+  "card-detail-badges": async (t, opts) => {
+    Logger.trace("Loading card-detail-badges");
+    return [
+      {
+        dynamic: async () => {
+          const state = new State();
+          await state.fetch(t);
+
+          const age_ms = state.age();
+
+          if (state.is_active) {
+            return StatusBadge(state);
+          } else if (state.is_break) {
+            return BreakBadge(state);
+          } else {
+            return NoBadge(state);
+          }
+        }
+      }
+    ];
   }
 });
 
