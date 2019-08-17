@@ -1,6 +1,6 @@
 import { Logger } from "./logger.js"
 
-export function notify(message) {
+export function notify(t, message) {
   Logger.trace("Creating notification...");
   return t.alert({
     message,

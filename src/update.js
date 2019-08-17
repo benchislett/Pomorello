@@ -15,13 +15,7 @@ export async function Start(t, set_length, break_length) {
 export async function Break(t, state) {
   Logger.trace(`Pomodoro for card ${state.name} finished.`);
   
-  notify(`Pomodoro for card ${state.name} complete.\nTime to take a break!`);
-
-  // t.alert({
-  //   message: `Pomodoro for card ${state.name} complete.\nTime to take a break!`,
-  //   duration: 10,
-  //   display: "success"
-  // });
+  notify(t, `Pomodoro for card ${state.name} complete.\nTime to take a break!`);
 
   state.is_active = false;
   state.is_break = true;
@@ -34,14 +28,8 @@ export async function Break(t, state) {
 export async function End(t, state) {
   Logger.trace(`Break for card ${state.name} finished.`);
 
-  notify(`Break for card ${state.name} has ended!`);
+  notify(t, `Break for card ${state.name} has ended!`);
 
-  // t.alert({
-  //   message: `Break for card ${state.name} has ended!`,
-  //   duration: 10,
-  //   display: "success"
-  // });
- 
   state.is_active = false;
   state.is_break = false;
 
