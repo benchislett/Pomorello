@@ -21,11 +21,11 @@ export async function Break(t, state) {
     console.error(JSON.stringify(err, null, 2));
   }
    
-  t.alert({
-    message: `Pomodoro for card ${state.name} complete.\nTime to take a break!`,
-    duration: 10,
-    display: "success"
-  });
+  // t.alert({
+  //   message: `Pomodoro for card ${state.name} complete.\nTime to take a break!`,
+  //   duration: 10,
+  //   display: "success"
+  // });
 
   state.is_active = false;
   state.is_break = true;
@@ -38,12 +38,11 @@ export async function Break(t, state) {
 export async function End(t, state) {
   Logger.trace(`Break for card ${state.name} finished.`);
 
-  bell.play();
-  t.alert({
-    message: `Break for card ${state.name} has ended!`,
-    duration: 10,
-    display: "success"
-  });
+  // t.alert({
+  //   message: `Break for card ${state.name} has ended!`,
+  //   duration: 10,
+  //   display: "success"
+  // });
  
   state.is_active = false;
   state.is_break = false;
