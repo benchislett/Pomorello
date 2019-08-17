@@ -13,7 +13,11 @@ class Sound {
   }
 }
 
-const bell = new Sound("resources/bell.mp3")
+try {
+  const bell = new Sound("./resources/bell.mp3")
+} catch (err) {
+  console.log(JSON.stringify(err, null, 2));
+}
 
 export {
   bell
