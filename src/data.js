@@ -46,8 +46,9 @@ export class State{
   }
 
   age() {
-    Logger.trace(`Computing age for card ${this.name}`);
-    return Date.now() - this.start_ms;
+    const age = Date.now() - this.start_ms;
+    Logger.trace(`Computing age for card ${this.name}: ${age}`);
+    return age;
   }
 
   timeStr() {
