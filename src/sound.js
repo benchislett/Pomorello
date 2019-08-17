@@ -13,12 +13,7 @@ class Sound {
   }
 }
 
-let bell = {play: () => {}};
-try {
-  bell = new Sound("./resources/bell.mp3")
-} catch (err) {
-  console.log(JSON.stringify(err, null, 2));
-}
+bell = new Sound("https://raw.githubusercontent.com/benchislett/Pomorello/gh-pages/resources/bell.mp3")
 
 export {
   bell
