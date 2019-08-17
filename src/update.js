@@ -1,5 +1,4 @@
 import { Logger } from "./logger.js"
-import { bell } from "./sound.js"
 
 export async function Start(t, set_length, break_length) {
   Logger.trace("Starting new set");
