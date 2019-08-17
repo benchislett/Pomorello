@@ -3,7 +3,7 @@ import { Logger } from "./logger.js"
 let status = null;
 async function init() {
   Logger.trace("Initializing notifications...");
-  if (!("Notification" in window)) {
+  if (!window.Notification) {
     status = false;
   } else if (Notification.permission === "granted") {
     status = false;
@@ -24,7 +24,9 @@ export async function notify(message) {
 
   if (status) {
     Logger.trace("Notifications status positive. Sending notification.");
-    return new Notification(message);
+    const n = new Notification(message);
+    Logger.debug("Notifcation sent!");
+    return n;
   }
 }
 
