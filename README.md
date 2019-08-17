@@ -40,4 +40,5 @@ Pomorello sets itself apart from other applications because it:
 - Add notifications
 - Add long breaks
 - Add optional clearing of Power-Up data
+- Add data export
 
