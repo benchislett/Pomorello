@@ -5,7 +5,7 @@ export class Logger {
    * 2: DEBUG
    * 3: TRACE
    */
-  static level = 0;
+  static level = 3;
   
   /* Log transport
    * Defaults to console.log
