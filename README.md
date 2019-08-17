@@ -36,4 +36,7 @@ Pomorello sets itself apart from other applications because it:
 - Add card-back status
 - Add a logo
 - Add images to this README
+- Add sounds
+- Add notifications
+- Add long breaks
 
