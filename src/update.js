@@ -15,11 +15,7 @@ export async function Start(t, set_length, break_length) {
 export async function Break(t, state) {
   Logger.trace(`Pomodoro for card ${state.name} finished.`);
   
-  try {
-    bell.play();
-  } catch (err) {
-    console.error(JSON.stringify(err, null, 2));
-  }
+  // bell.play();
    
   // t.alert({
   //   message: `Pomodoro for card ${state.name} complete.\nTime to take a break!`,
@@ -37,6 +33,8 @@ export async function Break(t, state) {
 
 export async function End(t, state) {
   Logger.trace(`Break for card ${state.name} finished.`);
+
+  bell.play();
 
   // t.alert({
   //   message: `Break for card ${state.name} has ended!`,
