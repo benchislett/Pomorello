@@ -10,11 +10,11 @@ function Menu(t, opts) {
 
     items: [
       {
-        text: "Plain 25/5",
+        text: "Plain 25/5/10",
         callback: (t, opts) => Start(t, 1000 * 60 * 25.0, 1000 * 60 * 5.0)
       },
       {
-        text: "Debug 1/0.5",
+        text: "Debug 1/0.5/1",
         callback: (t, opts) => Start(t, 1000 * 60 * 1.0, 1000 * 60 * 0.5)
       }
     ]

@@ -18,7 +18,7 @@ export function NoBadge(state) {
 export function StatusBadge(state) {
   Logger.debug(`Displaying status badge for card ${state.name}`);
   const status_badge = {
-    text: `Pomodoro Active: ${state.timeStr()}`,
+    text: `Pomodoro: ${state.timeStr()}`,
     color: "green"
   };
 
@@ -28,7 +28,17 @@ export function StatusBadge(state) {
 export function BreakBadge(state) {
   Logger.debug(`Displaying break badge for card ${state.name}`);
   const break_badge = {
-    text: `Resting: ${state.timeStr()}`,
+    text: `Break: ${state.timeStr()}`,
+    color: "blue"
+  };
+
+  return makeDynamic(state, break_badge);
+}
+
+export function LongBreakBadge(state) {
+  Logger.debug(`Displaying long break badge for card ${state.name}`);
+  const lbreak_badge = {
+    text: `Long Break: ${state.timeStr()}`,
     color: "blue"
   };
 
