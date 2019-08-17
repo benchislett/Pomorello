@@ -9,15 +9,15 @@ Upon initial release, it will (hopefully) be available as a Power-Up within Trel
 
 To use Pomorello, first add it to the board's list of Power-Ups
 
-[//]: # Image will go here
+![resources/powerup.png](Pomorello PowerUp)
 
 Next, select the card you want to work on, and click the Pomorello button.
 
-[//]: # Another image here, maybe a video/animation
+![resources/menu.png](Pomorello Set Selection Menu)
 
-Finally, select the option corresponding to your preferred settings.
+Finally, select the option corresponding to your preferred settings, and watch the magic happen.
 
-[//]: # One last image/video
+![resources/timer.png](Pomorello card with active Pomodoro)
 
 That's it! you're all set to start working.
 
