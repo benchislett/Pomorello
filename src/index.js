@@ -30,7 +30,7 @@ window.TrelloPowerUp.initialize({
       }
     ];
   },
-  "card-badges": async (t, opts) => {
+  "card-badges": (t, opts) => {
     Logger.trace("Loading card-badges");
     return [
       {
@@ -71,7 +71,7 @@ window.TrelloPowerUp.initialize({
       }
     ];
   },
-  "card-detail-badges": async (t, opts) => {
+  "card-detail-badges": (t, opts) => {
     Logger.trace("Loading card-detail-badges");
     return [
       {
