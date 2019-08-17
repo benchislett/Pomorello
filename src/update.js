@@ -1,4 +1,5 @@
 import { Logger } from "./logger.js"
+import { bell } from "./sound.js"
 
 export async function Start(t, set_length, break_length) {
   Logger.trace("Starting new set");
@@ -13,6 +14,8 @@ export async function Start(t, set_length, break_length) {
 
 export async function Break(t, state) {
   Logger.trace(`Pomodoro for card ${state.name} finished.`);
+
+  bell.play();
   t.alert({
     message: `Pomodoro for card ${state.name} complete.\nTime to take a break!`,
     duration: 10,
@@ -30,6 +33,7 @@ export async function Break(t, state) {
 export async function End(t, state) {
   Logger.trace(`Break for card ${state.name} finished.`);
 
+  bell.play();
   t.alert({
     message: `Break for card ${state.name} has ended!`,
     duration: 10,
