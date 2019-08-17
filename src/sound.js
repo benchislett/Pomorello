@@ -13,7 +13,7 @@ class Sound {
   }
 }
 
-bell = new Sound("https://raw.githubusercontent.com/benchislett/Pomorello/gh-pages/resources/bell.mp3")
+const bell = new Sound("https://raw.githubusercontent.com/benchislett/Pomorello/gh-pages/resources/bell.mp3")
 
 export {
   bell
