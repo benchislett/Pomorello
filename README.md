@@ -7,13 +7,33 @@ Pomorello is a light Trello Power-Up for tracking Pomodoro sets.
 Pomorello is currently under active development.
 Upon initial release, it will (hopefully) be available as a Power-Up within Trello.
 
+To use Pomorello, first add it to the board's list of Power-Ups
+
+[//]: # Image will go here
+
+Next, select the card you want to work on, and click the Pomorello button.
+
+[//]: # Another image here, maybe a video/animation
+
+Finally, select the option corresponding to your preferred settings.
+
+[//]: # One last image/video
+
+That's it! you're all set to start working.
+
 ## Why Pomorello?
 
-With **many** widely available time tracking tools, one might wonder why this is different.
-
-The primary motives behind the creation of Pomorello are to create an application which:
+Pomorello sets itself apart from other applications because it:
 - Is completely free
-- Is entirely self-contained: no sign-ups, no extra accounts, no external websites
+- Is entirely contained in Trello: no sign-ups, no extra accounts, no external websites
 - Is easy to use
-- Is open-source and community driven. If someone wants an additional feature, they can request it, or add it themselves.
+- Is open-source and community driven. If you want a feature, you can create an issue or PR to add it yourself.
+
+## TODOs
+
+- Add more options for set lengths
+- Add stats display
+- Add card-back status
+- Add a logo
+- Add images to this README
 
