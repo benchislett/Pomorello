@@ -63,7 +63,7 @@ export class State{
     } else if (this.is_break) {
       length = this.break_length;
       if (this.break_parity % 3 === 0) {
-        length *= 2;
+        length *= 3;
       }
     }
 
