@@ -1,37 +1,12 @@
-import { Start, Break, End } from "./update.js";
+import { Break, End } from "./update.js";
+import { Menu } from "./menu.js";
 import { NoBadge, StatusBadge, BreakBadge } from "./badges.js";
 import { State } from "./data.js";
 import { pomorello_icon, status_icon } from "./icons.js";
 import { Logger } from "./logger.js";
 
-function Menu(t, opts) {
-  Logger.trace("Showing dropdown powerup menu");
-  t.popup({
-    title: "Start a Pomodoro",
-
-    items: [
-      {
-        text: "Short Set: 15m active, 3m break, 9m long break",
-        callback: t => Start(t, 15, 3)
-      },
-      {
-        text: "Standard Set: 25m active, 5m break, 15m long break",
-        callback: t => Start(t, 25, 5)
-      },
-      {
-        text: "Long Set: 45m active, 10m break, 30m long break",
-        callback: t => Start(t, 45, 10)
-      },
-      {
-        text: "Debug Set: 1m active, 10s break, 30s long break",
-        callback: t => Start(t, 1, 1 / 6)
-      }
-    ]
-  });
-}
-
 window.TrelloPowerUp.initialize({
-  "card-buttons": async (t, opts) => {
+  "card-buttons": async () => {
     return [
       {
         icon: pomorello_icon,
@@ -40,7 +15,7 @@ window.TrelloPowerUp.initialize({
       }
     ];
   },
-  "card-badges": (t, opts) => {
+  "card-badges": t => {
     Logger.trace("Loading card-badges");
     return [
       {
@@ -81,7 +56,7 @@ window.TrelloPowerUp.initialize({
       }
     ];
   },
-  "card-detail-badges": (t, opts) => {
+  "card-detail-badges": t => {
     Logger.trace("Loading card-detail-badges");
     return [
       {
