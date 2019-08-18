@@ -34,4 +34,6 @@ Pomorello sets itself apart from other applications because it:
 - Add sounds
 - Add optional clearing of Power-Up data
 - Add data export
+- Add cancel option
+- Add instant-finish option
 
