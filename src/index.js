@@ -19,7 +19,7 @@ function Menu(t, opts) {
         callback: t => Start(t, 25, 5)
       },
       {
-        text: "Long Set: 45m active, 10m break, 30m long break"
+        text: "Long Set: 45m active, 10m break, 30m long break",
         callback: t => Start(t, 45, 10)
       },
       {
