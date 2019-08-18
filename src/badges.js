@@ -68,8 +68,7 @@ export function StatsBadge(state) {
 
   const stats_badge = {
     icon: pomorello_icon,
-    title: "Pomorello",
-    text: `Time spent on this card: ${format(time_s)}`,
+    text: `Time spent : ${format(time_s)}`,
     color: null
   };
 
