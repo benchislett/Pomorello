@@ -9,15 +9,15 @@ Upon initial release, it will (hopefully) be available as a Power-Up within Trel
 
 To use Pomorello, first add it to the board's list of Power-Ups
 
-![resources/powerup.png](Pomorello PowerUp)
+![Pomorello PowerUp](resources/powerup.png)
 
 Next, select the card you want to work on, and click the Pomorello button.
 
-![resources/menu.png](Pomorello Set Selection Menu)
+![Pomorello Set Selection Menu](resources/menu.png)
 
 Finally, select the option corresponding to your preferred settings, and watch the magic happen.
 
-![resources/timer.png](Pomorello card with active Pomodoro)
+![Pomorello card with active Pomodoro](resources/timer.png)
 
 That's it! you're all set to start working.
 
@@ -35,7 +35,6 @@ Pomorello sets itself apart from other applications because it:
 - Add stats display
 - Add card-back status
 - Add a logo
-- Add images to this README
 - Add sounds
 - Add optional clearing of Power-Up data
 - Add data export
