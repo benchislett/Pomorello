@@ -31,7 +31,6 @@ Pomorello sets itself apart from other applications because it:
 
 ## TODOs
 
-- Add more options for set lengths
 - Add stats display
 - Add a logo
 - Add sounds
