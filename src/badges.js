@@ -67,12 +67,16 @@ export function StatsBadge(state) {
 
   const time_s = Math.floor(time_ms / 1000);
 
+  Logger.debug(`Stats for card ${state.name}: ${time_s} seconds`);
+
   const stats_badge = {
     icon: pomorello_icon,
     title: "Pomorello",
     text: `Time spent on this card: ${format(time_s)}`,
     color: null
   };
+
+  Logger.info(`Stats badge for card ${state.name}:\n${JSON.stringify(stats_badge, null, 2)}`);
 
   return makeDynamic(state, stats_badge);
 }
