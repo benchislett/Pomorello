@@ -60,10 +60,7 @@ export function LongBreakBadge(state) {
 export function StatsBadge(state) {
   Logger.debug(`Displaying statistics badge for card ${state.name}`);
 
-  let time_ms = 0;
-  for ([length, sets] of Object.entries(state.set_hist || {})) {
-    time_ms += length * sets;
-  }
+  let time_ms = Object.entries(state.set_hist || {}).reduce((acc, pair) => acc + pair[0] * pair[1], 0);
 
   const time_s = Math.floor(time_ms / 1000);
 
