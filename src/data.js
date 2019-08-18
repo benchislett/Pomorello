@@ -1,5 +1,24 @@
 import { Logger } from "./logger.js";
 
+export function format(seconds) {
+  Logger.trace(`Formatting time from ${seconds}`);
+
+  const hrs = Math.floor(seconds / 3600) % 24;
+  const hrs_str = hrs.toFixed(0);
+
+  const mins = Math.floor(seconds / 60) % 60;
+  const mins_str = mins.toFixed(0);
+
+  const secs = seconds % 60;
+  const secs_str = secs.toFixed(0);
+
+  if (hrs) {
+    return `${hrs_str} hrs, ${mins_str} mins`;
+  } else {
+    return `${mins_str} mins, ${secs_str} seconds`;
+  }
+}
+
 export class State{
   constructor(refresh = 10) {
     Logger.trace(`Constructing new card with refresh ${refresh}`);
@@ -72,15 +91,8 @@ export class State{
     if (this.refresh) {
       time_s = this.refresh * Math.ceil(time_s / this.refresh);
     }
-    Logger.trace(`Formatting time for card ${this.name}: ${time_s} seconds`);
 
-    const mins = Math.floor(time_s / 60) % 60;
-    const mins_str = mins.toFixed(0).padStart(2, "0");
-
-    const secs = time_s % 60;
-    const secs_str = secs.toFixed(0).padStart(2, "0");
-
-    return `${mins_str}:${secs_str}`;
+    return format(time_s);
   }
 
   addSet() {

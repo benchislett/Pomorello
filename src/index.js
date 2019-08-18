@@ -72,6 +72,14 @@ window.TrelloPowerUp.initialize({
             return NoBadge(state);
           }
         }
+      },
+      {
+        dynamic: async () => {
+          const state = new State();
+          await state.fetch(t);
+
+          return StatsBadge(state);
+        }
       }
     ];
   }

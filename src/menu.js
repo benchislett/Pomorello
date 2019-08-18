@@ -5,7 +5,7 @@ export function Menu(t) {
   Logger.trace("Showing dropdown powerup menu");
   
   const short_set = {
-    text: "Short Set:\n15m active, 3m break, 9m long break",
+    text: "Short Set:\n 15m active, 3m break, 9m long break",
     callback: t => Start(t, 15, 3)
   };
 

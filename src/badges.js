@@ -1,5 +1,6 @@
 import { Logger } from "./logger.js";
-import { status_icon, break_icon, long_break_icon } from "./icons.js";
+import { pomorello_icon, status_icon, break_icon, long_break_icon } from "./icons.js";
+import { format } from "./data.js";
 
 function makeDynamic(state, item) {
   if (state.refresh) {
@@ -56,3 +57,22 @@ export function LongBreakBadge(state) {
   return makeDynamic(state, break_badge);
 }
 
+export function StatsBadge(state) {
+  Logger.debug(`Displaying statistics badge for card ${state.name}`);
+
+  let time_ms = 0;
+  for ([length, sets] of Object.entries(state.set_hist)) {
+    time_ms += length * sets;
+  }
+
+  const time_s = Math.floor(time_ms / 1000);
+
+  const stats_badge = {
+    icon: pomorello_icon,
+    title: "Pomorello",
+    text: `Time spent on this card: ${format(time_s)}`,
+    color: null
+  };
+
+  return makeDynamic(state, stats_badge);
+}
