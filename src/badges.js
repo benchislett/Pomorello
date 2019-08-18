@@ -54,7 +54,7 @@ export function LongBreakBadge(state) {
     color: "blue"
   };
 
-  return makeDynamic(state, break_badge);
+  return makeDynamic(state, lbreak_badge);
 }
 
 export function StatsBadge(state) {
