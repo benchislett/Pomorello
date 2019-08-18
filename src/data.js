@@ -13,9 +13,9 @@ export function format(seconds) {
   const secs_str = secs.toFixed(0);
 
   if (hrs) {
-    return `${hrs_str} hrs, ${mins_str} mins`;
+    return `${hrs_str} h, ${mins_str} m`;
   } else {
-    return `${mins_str} mins, ${secs_str} seconds`;
+    return `${mins_str} m, ${secs_str} s`;
   }
 }
 

@@ -1,6 +1,6 @@
 import { Break, End } from "./update.js";
 import { Menu } from "./menu.js";
-import { NoBadge, StatusBadge, BreakBadge } from "./badges.js";
+import { NoBadge, StatusBadge, BreakBadge, StatsBadge } from "./badges.js";
 import { State } from "./data.js";
 import { pomorello_icon, status_icon } from "./icons.js";
 import { Logger } from "./logger.js";
