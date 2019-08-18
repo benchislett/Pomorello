@@ -61,7 +61,7 @@ export function StatsBadge(state) {
   Logger.debug(`Displaying statistics badge for card ${state.name}`);
 
   let time_ms = 0;
-  for ([length, sets] of Object.entries(state.set_hist)) {
+  for ([length, sets] of Object.entries(state.set_hist || {})) {
     time_ms += length * sets;
   }
 
