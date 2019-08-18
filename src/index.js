@@ -79,8 +79,6 @@ window.TrelloPowerUp.initialize({
           const state = new State();
           await state.fetch(t);
 
-          const age_ms = state.age();
-
           if (state.is_active) {
             return StatusBadge(state);
           } else if (state.is_break) {

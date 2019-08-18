@@ -18,6 +18,7 @@ export function NoBadge(state) {
 export function StatusBadge(state) {
   Logger.debug(`Displaying status badge for card ${state.name}`);
   const status_badge = {
+    title: "Pomorello",
     text: `Pomodoro: ${state.timeStr()}`,
     color: "green"
   };
@@ -28,6 +29,7 @@ export function StatusBadge(state) {
 export function BreakBadge(state) {
   Logger.debug(`Displaying break badge for card ${state.name}`);
   const break_badge = {
+    title: "Pomorello",
     text: `Break: ${state.timeStr()}`,
     color: "blue"
   };
@@ -38,6 +40,7 @@ export function BreakBadge(state) {
 export function LongBreakBadge(state) {
   Logger.debug(`Displaying long break badge for card ${state.name}`);
   const lbreak_badge = {
+    title: "Pomorello",
     text: `Long Break: ${state.timeStr()}`,
     color: "blue"
   };
