@@ -33,7 +33,6 @@ Pomorello sets itself apart from other applications because it:
 
 - Add more options for set lengths
 - Add stats display
-- Add card-back status
 - Add a logo
 - Add sounds
 - Add optional clearing of Power-Up data
