@@ -27,6 +27,10 @@ export function StatusBadge(state) {
 }
 
 export function BreakBadge(state) {
+  if (state.break_parity % 3 === 0) {
+    return LongBreakBadge(state);
+  }
+
   Logger.debug(`Displaying break badge for card ${state.name}`);
   const break_badge = {
     title: "Pomorello",
