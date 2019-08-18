@@ -31,8 +31,6 @@ Pomorello sets itself apart from other applications because it:
 
 ## TODOs
 
-- Add stats display
-- Add a logo
 - Add sounds
 - Add optional clearing of Power-Up data
 - Add data export
