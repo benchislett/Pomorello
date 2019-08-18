@@ -1,4 +1,4 @@
-import { Logger } from "./logger.js"
+import { Logger } from "./logger.js";
 
 export class State{
   constructor(refresh = 10) {

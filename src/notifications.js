@@ -1,4 +1,4 @@
-import { Logger } from "./logger.js"
+import { Logger } from "./logger.js";
 
 export function notify(t, message) {
   Logger.trace("Creating notification...");

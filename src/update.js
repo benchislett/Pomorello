@@ -1,5 +1,5 @@
-import { Logger } from "./logger.js"
-import { notify } from "./notifications.js"
+import { Logger } from "./logger.js";
+import { notify } from "./notifications.js";
 
 export async function Start(t, set_length, break_length) {
   Logger.trace("Starting new set");

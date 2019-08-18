@@ -1,7 +1,8 @@
-import { Start, Break, End } from "./update.js"
-import { NoBadge, StatusBadge, BreakBadge } from "./badges.js"
-import { State } from "./data.js"
-import { Logger } from "./logger.js"
+import { Start, Break, End } from "./update.js";
+import { NoBadge, StatusBadge, BreakBadge } from "./badges.js";
+import { State } from "./data.js";
+import { pomorello_icon, status_icon } from "./icons.js";
+import { Logger } from "./logger.js";
 
 function Menu(t, opts) {
   Logger.trace("Showing dropdown powerup menu");
@@ -10,10 +11,12 @@ function Menu(t, opts) {
 
     items: [
       {
+        icon: status_icon,
         text: "Plain 25/5/10",
         callback: (t, opts) => Start(t, 1000 * 60 * 25.0, 1000 * 60 * 5.0)
       },
       {
+        icon: status_icon,
         text: "Debug 1/0.5/1",
         callback: (t, opts) => Start(t, 1000 * 60 * 1.0, 1000 * 60 * 0.5)
       }
@@ -25,6 +28,7 @@ window.TrelloPowerUp.initialize({
   "card-buttons": async (t, opts) => {
     return [
       {
+        icon: pomorello_icon,
         text: "Pomorello",
         callback: Menu 
       }
