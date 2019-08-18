@@ -40,7 +40,7 @@ window.TrelloPowerUp.initialize({
             }
           } else if (state.is_break) {
             Logger.trace("Break active");
-            if (age_ms > state.break_length) {
+            if (age_ms > state.break_length * (state.break_parity % 3 === 0 ? 3 : 1)) {
               Logger.trace("Break expired");
               await End(t, state)
               return NoBadge(state);
