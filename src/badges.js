@@ -68,7 +68,7 @@ export function StatsBadge(state) {
 
   const stats_badge = {
     icon: pomorello_icon,
-    title: "",
+    title: "Activity Summary",
     text: `Time spent : ${format(time_s)}`,
     color: null
   };
