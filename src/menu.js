@@ -51,7 +51,7 @@ export function BadgeMenu(t, state) {
     
     items: [
       kill_set
-    ];
+    ]
   });
 }
 
