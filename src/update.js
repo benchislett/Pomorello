@@ -1,15 +1,16 @@
 import { Logger } from "./logger.js";
 import { notify } from "./notifications.js";
 
-export async function Start(t, set_length_m, break_length_m) {
+export async function Start(t, state, set_length_m, break_length_m) {
   Logger.trace("Starting new set");
-  return t.set("card", "shared", {
-    POMORELLO_ACTIVE: true,
-    POMORELLO_BREAK: false,
-    POMORELLO_START: Date.now(),
-    POMORELLO_SET_LENGTH: 1000 * 60 * set_length_m,
-    POMORELLO_BREAK_LENGTH: 1000 * 60 * break_length_m
-  });
+
+  state.is_active = true;
+  state.is_break = false;
+  state.start_ms = Date.now();
+  state.set_length = 1000 * 60 * set_length_m;
+  state.break_length = 1000 * 60 * break_length_m;
+
+  return state.sync(t);
 }
 
 export async function Break(t, state) {
@@ -32,6 +33,7 @@ export async function End(t, state) {
 
   state.is_active = false;
   state.is_break = false;
+  state.start_ms = 0;
 
   return state.sync(t);
 }

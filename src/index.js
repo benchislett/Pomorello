@@ -1,17 +1,20 @@
 import { Break, End } from "./update.js";
-import { Menu } from "./menu.js";
+import { SetMenu } from "./menu.js";
 import { NoBadge, StatusBadge, BreakBadge, StatsBadge } from "./badges.js";
 import { State } from "./data.js";
 import { pomorello_icon, status_icon } from "./icons.js";
 import { Logger } from "./logger.js";
 
 window.TrelloPowerUp.initialize({
-  "card-buttons": async () => {
+  "card-buttons": async t => {
+    const state = new State();
+    await state.fetch(t);
+
     return [
       {
         icon: pomorello_icon,
         text: "Pomorello",
-        callback: Menu 
+        callback: new_t => SetMenu(new_t, state)
       }
     ];
   },
