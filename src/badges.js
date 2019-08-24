@@ -1,7 +1,6 @@
 import { Logger } from "./logger.js";
 import { pomorello_icon, status_icon, break_icon, long_break_icon } from "./icons.js";
 import { format } from "./data.js";
-import { BadgeMenu } from "./menu.js";
 
 function makeDynamic(state, item) {
   if (state.refresh) {
@@ -24,13 +23,7 @@ export function StatusBadge(state) {
     icon: status_icon,
     title: "Pomorello",
     text: `Pomodoro: ${state.timeStr()}`,
-    color: "green",
-    callback: function(t, opts) {
-      t.popup({
-        title: "Test popup",
-        items: []
-      });
-    }
+    color: "green"
   };
 
   return makeDynamic(state, status_badge);
@@ -46,8 +39,7 @@ export function BreakBadge(state) {
     icon: break_icon,
     title: "Pomorello",
     text: `Break: ${state.timeStr()}`,
-    color: "blue",
-    callback: new_t => BadgeMenu(new_t, state)
+    color: "blue"
   };
 
   return makeDynamic(state, break_badge);
@@ -59,8 +51,7 @@ export function LongBreakBadge(state) {
     icon: long_break_icon,
     title: "Pomorello",
     text: `Long Break: ${state.timeStr()}`,
-    color: "blue",
-    callback: new_t => BadgeMenu(new_t, state)
+    color: "blue"
   };
 
   return makeDynamic(state, lbreak_badge);

@@ -1,5 +1,5 @@
 import { Break, End } from "./update.js";
-import { SetMenu } from "./menu.js";
+import { MainMenu } from "./menu.js";
 import { NoBadge, StatusBadge, BreakBadge, StatsBadge } from "./badges.js";
 import { State } from "./data.js";
 import { pomorello_icon, status_icon } from "./icons.js";
@@ -14,7 +14,7 @@ window.TrelloPowerUp.initialize({
       {
         icon: pomorello_icon,
         text: "Pomorello",
-        callback: new_t => SetMenu(new_t, state)
+        callback: new_t => MainMenu(new_t, state)
       }
     ];
   },

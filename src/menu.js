@@ -27,16 +27,10 @@ export function SetMenu(t, state) {
     };
   }
 
-  const cancel = {
-    text: "Cancel Active Set",
-    callback: new_t => BadgeMenu(new_t, state)
-  };
-
   return t.popup({
     title: "Start a Pomodoro",
 
     items: [
-      cancel,
       short_set,
       med_set,
       long_set,
@@ -45,8 +39,8 @@ export function SetMenu(t, state) {
   });
 }
 
-export function BadgeMenu(t, state) {
-  Logger.trace("Showing dropdown status menu");
+export function ActionMenu(t, state) {
+  Logger.trace("Showing dropdown action menu");
 
   const kill_set = {
     text: "Cancel Set",
@@ -54,7 +48,7 @@ export function BadgeMenu(t, state) {
   };
 
   return t.popup({
-    title: "Active Set Menu",
+    title: "Stop a Pomodoro",
     
     items: [
       kill_set
@@ -62,3 +56,25 @@ export function BadgeMenu(t, state) {
   });
 }
 
+export function MainMenu(t, state) {
+  Logger.trace("Showing main menu");
+
+  const start = {
+    text: "Start a Set",
+    callback: new_t => SetMenu(t, state)
+  };
+
+  const stop = {
+    text: "Stop a Set",
+    callback: new_t => ActionMenu
+  };
+
+  return t.popup({
+    title: "Pomorello Menu",
+
+    items: [
+      start,
+      stop
+    ]
+  });
+}
