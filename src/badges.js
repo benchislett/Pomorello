@@ -25,7 +25,12 @@ export function StatusBadge(state) {
     title: "Pomorello",
     text: `Pomodoro: ${state.timeStr()}`,
     color: "green",
-    callback: new_t => BadgeMenu(new_t, state)
+    callback: function(t, opts) {
+      t.popup({
+        title: "Test popup",
+        items: []
+      });
+    }
   };
 
   return makeDynamic(state, status_badge);
