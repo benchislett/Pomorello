@@ -61,12 +61,12 @@ export function MainMenu(t, state) {
 
   const start = {
     text: "Start a Set",
-    callback: new_t => SetMenu(t, state)
+    callback: new_t => SetMenu(new_t, state)
   };
 
   const stop = {
     text: "Stop a Set",
-    callback: new_t => ActionMenu
+    callback: new_t => ActionMenu(new_t, state)
   };
 
   return t.popup({
