@@ -27,7 +27,7 @@ export function SetMenu(t, state) {
     };
   }
 
-  t.popup({
+  return t.popup({
     title: "Start a Pomodoro",
 
     items: [
@@ -40,13 +40,14 @@ export function SetMenu(t, state) {
 }
 
 export function BadgeMenu(t, state) {
-  
+  Logger.trace("Showing dropdown status menu");
+
   const kill_set = {
     text: "Cancel Set",
     callback: new_t => End(new_t, state)
   };
 
-  t.popup({
+  return t.popup({
     title: "Active Set Menu",
     
     items: [
