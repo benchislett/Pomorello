@@ -27,10 +27,16 @@ export function SetMenu(t, state) {
     };
   }
 
+  const cancel = {
+    text: "Cancel Active Set",
+    callback: new_t => BadgeMenu(new_t, state)
+  };
+
   return t.popup({
     title: "Start a Pomodoro",
 
     items: [
+      cancel,
       short_set,
       med_set,
       long_set,
