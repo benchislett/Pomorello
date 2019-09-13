@@ -7,14 +7,11 @@ import { Logger } from "./logger.js";
 
 window.TrelloPowerUp.initialize({
   "card-buttons": async t => {
-    const state = new State();
-    await state.fetch(t);
-
     return [
       {
         icon: pomorello_icon,
         text: "Pomorello",
-        callback: new_t => MainMenu(new_t, state)
+        callback: async new_t => MainMenu(new_t)
       }
     ];
   },

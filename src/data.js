@@ -38,7 +38,11 @@ export class State{
     Logger.trace("Fetching data");
     const name_p = t.card("name");
     let data = await t.getAll();
-    data = data.card.shared || {};
+    try {
+      data = data.card.shared || {};
+    } catch {
+      data = {};
+    }
     Logger.trace("Got data");
 
     this.is_active = data.POMORELLO_ACTIVE || this.is_active;
