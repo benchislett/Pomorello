@@ -1,9 +1,10 @@
 import { Start, End } from "./update.js";
 import { Logger } from "./logger.js";
+import { State } from "./data.js";
 
 export function SetMenu(t, state) {
   Logger.trace("Showing dropdown powerup menu");
-  
+
   const short_set = {
     text: "Short Set " + "15m active, 3m break, 9m long break".replace(/ /g, '\xa0'),
     callback: new_t => Start(new_t, state, 15, 3)
@@ -23,7 +24,7 @@ export function SetMenu(t, state) {
   if (Logger.level >= 2) {
     debug_set = {
       text: "Debug Set " + "1m active, 10s break, 30s long break".replace(/ /g, '\xa0'),
-      callback: new_t => Start(new_t, state, 1, 1/6)
+      callback: new_t => Start(new_t, state, 1, 1 / 6)
     };
   }
 
@@ -49,15 +50,19 @@ export function ActionMenu(t, state) {
 
   return t.popup({
     title: "Stop a Pomodoro",
-    
+
     items: [
       kill_set
     ]
   });
 }
 
-export function MainMenu(t, state) {
+export async function MainMenu(t) {
+
   Logger.trace("Showing main menu");
+
+  const state = new State();
+  await state.fetch(t);
 
   const start = {
     text: "Start a Set",
