@@ -35,3 +35,8 @@ Pomorello sets itself apart from other applications because it:
 - Add data export
 - Add instant-finish option
 
+## Privacy
+
+Pomorello is self-contained in Trello, and does not collect any data.
+Only enough data to track the time is stored, and this is done directly on the
+trello board. If the card/list/board goes, so does the stored data.
