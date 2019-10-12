@@ -10,12 +10,14 @@ export async function Start(t, state, set_length_m, break_length_m) {
   state.set_length = 1000 * 60 * set_length_m;
   state.break_length = 1000 * 60 * break_length_m;
 
-  return state.sync(t);
+  const toReturn = state.sync(t);
+  t.closePopup();
+  return toReturn;
 }
 
 export async function Break(t, state) {
   Logger.trace(`Pomodoro for card ${state.name} finished.`);
-  
+
   notify(t, `Pomodoro for card ${state.name} complete.\nTime to take a break!`);
 
   state.is_active = false;
@@ -23,7 +25,9 @@ export async function Break(t, state) {
   state.start_ms = Date.now();
   state.addSet();
 
-  return state.sync(t);
+  const toReturn = state.sync(t);
+  t.closePopup();
+  return toReturn;
 }
 
 export async function End(t, state) {
@@ -35,6 +39,8 @@ export async function End(t, state) {
   state.is_break = false;
   state.start_ms = 0;
 
-  return state.sync(t);
+  const toReturn = state.sync(t);
+  t.closePopup();
+  return toReturn;
 }
 
