@@ -1,11 +1,8 @@
 # Pomorello
 
-Pomorello is a light Trello Power-Up for tracking Pomodoro sets.
+Pomorello is a light Trello Power-Up for tracking Pomodoro sets, and is currently active and publicly available.
 
 ## Usage
-
-Pomorello is currently under active development.
-Upon initial release, it will (hopefully) be available as a Power-Up within Trello.
 
 To use Pomorello, first add it to the board's list of Power-Ups
 
@@ -27,7 +24,7 @@ Pomorello sets itself apart from other applications because it:
 - Is completely free
 - Is entirely contained in Trello: no sign-ups, no extra accounts, no external websites
 - Is easy to use
-- Is open-source and community driven. If you want a feature, you can create an issue or PR to add it yourself.
+- Is open-source and community driven. If you want a feature, you can create an issue or PR to add it yourself
 
 ## TODOs
 
