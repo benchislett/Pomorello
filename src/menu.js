@@ -17,7 +17,7 @@ export function SetMenu(t, state) {
 
   const long_set = {
     text: "Long Set " + "45m active, 10m break, 30m long break".replace(/ /g, '\xa0'),
-    callback: new_t => Start(new_t, state, 45, 5)
+    callback: new_t => Start(new_t, state, 45, 10)
   };
 
   let debug_set = {};
